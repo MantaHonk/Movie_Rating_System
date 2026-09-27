@@ -5,26 +5,26 @@ CREATE TABLE Movie (
     revenue INT
 );
 
-CREATE TABLE Cast (
+CREATE TABLE CastMember (
     cast_id INT PRIMARY KEY,
-    name VARCHAR(255),
+    cast_name VARCHAR(255),
     gender INT
 );
 
 CREATE TABLE Studio (
     studio_id INT PRIMARY KEY,
-    name VARCHAR(255),
-    location VARCHAR(255)
+    studio_name VARCHAR(255),
+    studio_location VARCHAR(255)
 );
 
 CREATE TABLE Crew (
     crew_id INT PRIMARY KEY,
-    name VARCHAR(255),
+    crew_name VARCHAR(255),
     gender VARCHAR(255)
-)
+);
 
-CREATE TABLE user (
+CREATE TABLE UserProfile (
     profile_id INT PRIMARY KEY,
-    name VARCHAR(255),
-    password VARCHAR(255)
+    profile_name VARCHAR(255),
+    profile_password VARCHAR(255)
 )
