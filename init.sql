@@ -2,7 +2,10 @@ CREATE TABLE Movie (
     movie_id INT PRIMARY KEY,
     title VARCHAR(255),
     budget INT,
-    revenue INT
+    revenue INT,
+    imdb_rating INT,
+    studio_id INT FOREIGN KEY REFERENCES Studio,
+    profile_id INT FOREIGN KEY REFERENCES User
 );
 
 CREATE TABLE CastMember (
@@ -23,17 +26,12 @@ CREATE TABLE Crew (
     gender VARCHAR(255)
 );
 
-CREATE TABLE UserProfile (
+CREATE TABLE User (
     profile_id INT PRIMARY KEY,
     profile_name VARCHAR(255),
     profile_password VARCHAR(255)
 );
 
-CREATE TABLE Owns (
-    studio_id INT,
-    movie_id INT,
-    PRIMARY KEY (studio_id, movie_id)
-);
 
 CREATE TABLE ActsIn (
     cast_id INT,
