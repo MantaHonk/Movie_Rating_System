@@ -4,7 +4,7 @@ CREATE TABLE Movie (
     budget INT,
     revenue INT,
     imdb_rating INT,
-    studio_id INT FOREIGN KEY REFERENCES Studio,
+    studio_id INT FOREIGN KEY REFERENCES Studio
 );
 
 CREATE TABLE CastMember (
