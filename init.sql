@@ -1,9 +1,3 @@
-CREATE TABLE CastMember (
-    cast_id INT PRIMARY KEY,
-    cast_name VARCHAR(255),
-    gender INT
-);
-
 CREATE TABLE Studio (
     studio_id INT PRIMARY KEY,
     studio_name VARCHAR(255),
@@ -20,10 +14,23 @@ CREATE TABLE Movie (
     FOREIGN KEY (studio_id) REFERENCES Studio(studio_id)
 );
 
-CREATE TABLE Crew (
-    crew_id INT PRIMARY KEY,
-    crew_name VARCHAR(255),
-    gender VARCHAR(255)
+CREATE TABLE Workers (
+    worker_id INT PRIMARY KEY,
+    worker_name VARCHAR(255)
+);
+
+CREATE TABLE CastMember (
+    worker_id INT PRIMARY KEY,
+    FOREIGN KEY (worker_id) REFERENCES Workers(worker_id)
+);
+
+CREATE TABLE Role (
+    character_played VARCHAR(255),
+    cast_order INT,
+    worker_id INT,
+    movie_id INT,
+    FOREIGN KEY (worker_id) REFERENCES CastMember(worker_id),
+    FOREIGN KEY (movie_id) REFERENCES Movie(movie_id)
 );
 
 CREATE TABLE User (
@@ -43,15 +50,15 @@ CREATE TABLE ActsIn (
 );
 
 CREATE TABLE WorksOn (
-    crew_id INT,
+    worker_id INT,
     movie_id INT,
-    job VARCHAR(255),
-    department VARCHAR(255),
-    PRIMARY KEY (crew_id, movie_id, job)
+    PRIMARY KEY (worker_id, movie_id),
+    FOREIGN KEY (worker_id) REFERENCES Workers(worker_id),
+    FOREIGN KEY (movie_id) REFERENCES Movie(movie_id)
 );
 
 CREATE TABLE Rates (
-    profile_id INT,
+    profile_id INT UNIQUE,
     movie_id INT,
     rating INT,
     rates_timestamp INT,
