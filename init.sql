@@ -1,12 +1,3 @@
-CREATE TABLE Movie (
-    movie_id INT PRIMARY KEY,
-    title VARCHAR(255),
-    budget INT,
-    revenue INT,
-    imdb_rating INT,
-    studio_id INT FOREIGN KEY REFERENCES Studio
-);
-
 CREATE TABLE CastMember (
     cast_id INT PRIMARY KEY,
     cast_name VARCHAR(255),
@@ -17,6 +8,15 @@ CREATE TABLE Studio (
     studio_id INT PRIMARY KEY,
     studio_name VARCHAR(255),
     studio_location VARCHAR(255)
+);
+
+CREATE TABLE Movie (
+    movie_id INT PRIMARY KEY,
+    title VARCHAR(255),
+    budget INT,
+    revenue INT,
+    imdb_rating INT,
+    studio_id INT FOREIGN KEY REFERENCES Studio
 );
 
 CREATE TABLE Crew (
