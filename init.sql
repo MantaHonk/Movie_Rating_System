@@ -39,16 +39,6 @@ CREATE TABLE User (
     profile_password VARCHAR(255)
 );
 
-
-CREATE TABLE ActsIn (
-    cast_id INT,
-    movie_id INT,
-    credit_id VARCHAR(255),
-    character_played VARCHAR(255),
-    cast_order INT,
-    PRIMARY KEY (cast_id, movie_id, credit_id)
-);
-
 CREATE TABLE WorksOn (
     worker_id INT,
     movie_id INT,
@@ -58,9 +48,9 @@ CREATE TABLE WorksOn (
 );
 
 CREATE TABLE Rates (
-    profile_id INT UNIQUE,
+    profile_id INT,
     movie_id INT,
     rating INT,
     rates_timestamp INT,
-    PRIMARY KEY (profile_id, movie_id)
+    PRIMARY KEY (profile_id, movie_id) UNIQUE
 );
