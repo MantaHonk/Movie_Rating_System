@@ -69,10 +69,12 @@ CREATE TABLE WorksOn (
 
 -- FD: profile_id, movie_id -> rating, rates_timestamp
 CREATE TABLE Rates (
-    profile_id INT FOREIGN KEY REFERENCES User(profile_id),
-    movie_id INT FOREIGN KEY REFERENCES Movie(movie_id),
+    profile_id INT,
+    movie_id INT,
     rating INT,
     rates_timestamp INT,
     PRIMARY KEY (profile_id, movie_id),
+    FOREIGN KEY (profile_id) REFERENCES User(profile_id),
+    FOREIGN KEY (movie_id) REFERENCES Movie(movie_id),
     UNIQUE (profile_id)
 );
