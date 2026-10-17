@@ -12,7 +12,7 @@ CREATE TABLE Movie (
     title VARCHAR(255),
     budget INT,
     revenue INT,
-    imdb_rating INT,
+    imdb_rating FLOAT,
     studio_id INT,
     FOREIGN KEY (studio_id) REFERENCES Studio(studio_id)
 );
@@ -71,10 +71,9 @@ CREATE TABLE WorksOn (
 CREATE TABLE Rates (
     profile_id INT,
     movie_id INT,
-    rating INT,
-    rates_timestamp INT,
+    rating float,
+    rates_timestamp DATETIME,
     PRIMARY KEY (profile_id, movie_id),
     FOREIGN KEY (profile_id) REFERENCES User(profile_id),
-    FOREIGN KEY (movie_id) REFERENCES Movie(movie_id),
-    UNIQUE (profile_id)
+    FOREIGN KEY (movie_id) REFERENCES Movie(movie_id)
 );
