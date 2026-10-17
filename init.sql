@@ -73,5 +73,6 @@ CREATE TABLE Rates (
     movie_id INT,
     rating INT,
     rates_timestamp INT,
-    PRIMARY KEY (profile_id, movie_id) UNIQUE
+    PRIMARY KEY (profile_id, movie_id),
+    UNIQUE (profile_id)
 );
