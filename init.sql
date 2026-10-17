@@ -71,7 +71,7 @@ CREATE TABLE WorksOn (
 CREATE TABLE Rates (
     profile_id INT,
     movie_id INT,
-    rating float,
+    rating INT,
     rates_timestamp DATETIME,
     PRIMARY KEY (profile_id, movie_id),
     FOREIGN KEY (profile_id) REFERENCES User(profile_id),
