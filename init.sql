@@ -42,6 +42,7 @@ CREATE TABLE Role (
     cast_order INT,
     worker_id INT,
     movie_id INT,
+    PRIMARY KEY (movie_id, cast_order),
     FOREIGN KEY (worker_id) REFERENCES CastMember(worker_id),
     FOREIGN KEY (movie_id) REFERENCES Movie(movie_id)
 );
